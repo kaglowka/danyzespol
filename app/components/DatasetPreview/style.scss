@@ -3,7 +3,6 @@
 }
 .preview-table {
     display: grid;
-    background: #FFFFFF;
     border-right: 1px solid rgba(0,0,0,0.12);
     border-radius: 3px;
 
@@ -11,6 +10,7 @@
         padding: 15px 0;
         border-bottom: 1px solid rgba(0,0,0,0.12);
         text-align: center;
+        background: #FFFFFF;
 
         &:first-child {
             border-top: 1px solid rgba(0,0,0,0.12);
@@ -30,6 +30,7 @@
     padding-right: 20px;
     line-height: 14px;
     border-right: 1px solid rgba(0,0,0,0.12);
+    background-color: transparent;
 }
 
 .column-header {
