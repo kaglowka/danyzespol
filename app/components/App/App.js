@@ -9,39 +9,9 @@
 import React from 'react';
 import './style.scss';
 import SearchBar from '../SearchBar';
-import DatasetPreview from '../DatasetPreview';
+import Creator from '../Creator';
 import {getResource} from 'api';
 
-const columns = [
-	{
-		header: 'Imię',
-		type: 'string',
-		unique: 1000,
-		rangeFrom: 'Aaron',
-		rangeTo: 'Żaneta',
-	},
-	{
-		header: 'Rok',
-		type: 'number',
-		unique: 17,
-		rangeFrom: 2000,
-		rangeTo: 2017,
-	},
-	{
-		header: 'Liczba',
-		type: 'number',
-		unique: 17000,
-		rangeFrom: 5,
-		rangeTo: 18600,
-	},
-	{
-		header: 'Płeć',
-		type: 'string',
-		unique: 2,
-		rangeFrom: 'K',
-		rangeTo: 'M',
-	},
-]
 
 class App extends React.Component {
 	constructor() {
@@ -63,8 +33,8 @@ class App extends React.Component {
 		return (
 			<div className="app-wrapper">
 				<SearchBar onItemSelect={this.onSelect} />
-        {this.state.resource && <div>{this.state.resource.attributes.title}</div>}
-        <DatasetPreview columns={columns}/>
+				{this.state.resource && <div>{this.state.resource.attributes.title}</div>}
+				<Creator />
 			</div>
 		);
 	}

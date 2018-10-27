@@ -1,0 +1,35 @@
+.creator {
+    font-family: 'Roboto', sans-serif;
+}
+
+.chart-section {
+    background-color: #EEEEEE;
+
+    .section-container {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.chart-section-description {
+    flex: 1
+}
+
+.chart-slider {
+    flex: 4
+}
+
+.data-section {
+    background-color: #F9F9F9;
+}
+
+.editor-section {
+    background-color: #EEEEEE;
+}
+
+.section-container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 28px 0;
+}
