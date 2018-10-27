@@ -3,14 +3,17 @@
 }
 
 .option-tile {
-    border: 2px solid rgba(0,0,0,0.54);
+    border: 1px solid #6d6d6d;
+    color: #6d6d6d;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 15px;
     margin-right: 5px;
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
 
     &:hover, &.selected {
-        background-color: rgba(0,0,0,0.54);
+        background-color: #6d6d6d;
         color: white;
     }
 }
