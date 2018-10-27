@@ -39,8 +39,13 @@ const columns = [
 ]
 
 export default class Creator extends React.Component {
-	render() {
+	
+	constructor(props) {
+		super(props);
+	}
 
+	render() {
+		console.log(this.props.columns);
 		return (
 			<div className="creator">
 				<section className="chart-section">
@@ -56,7 +61,7 @@ export default class Creator extends React.Component {
 				</section>
 				<section className="data-section">
 					<div className="section-container">
-						<DatasetPreview columns={columns}/>
+						<DatasetPreview columns={this.props.columns}/>
 					</div>
 				</section>
 				<section className="editor-section">

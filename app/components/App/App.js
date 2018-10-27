@@ -10,7 +10,7 @@ import React from 'react';
 import './style.scss';
 import SearchBar from '../SearchBar';
 import Creator from '../Creator';
-import {getResource} from 'api';
+import {APIgetResource, analysisGetResource} from 'api';
 
 
 class App extends React.Component {
@@ -19,22 +19,28 @@ class App extends React.Component {
 
 		this.state = {
 			resource: null,
+			columns: null,
 		}
 	}
 
-	onSelect(id) {
+	onSelect = (id) => {
 		console.log(id);
-		getResource(id).then(result => {
-			this.setState({resource: result.data})
+		APIgetResource(id).then(result => {
+			this.setState({resource: result.data});
+			return analysisGetResource(id)
+		}).then(result => {
+			// console.log(result);
+			this.setState({columns: result.columns});
 		});
 	}
 
 	render() {
+		console.log(this.state.resource)
 		return (
 			<div className="app-wrapper">
 				<SearchBar onItemSelect={this.onSelect} />
 				{this.state.resource && <div>{this.state.resource.attributes.title}</div>}
-				<Creator />
+				<Creator columns={this.state.columns}/>
 			</div>
 		);
 	}

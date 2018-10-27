@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import {getResources} from "api";
+import {APIgetResources} from "api";
 
 class SearchBar extends React.Component {
   
@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    const results = getResources().then(result => {
+    const results = APIgetResources().then(result => {
       this.setState({searchResults: result.data});
     });
   }
@@ -35,7 +35,7 @@ class SearchBar extends React.Component {
   renderResults() {
     const items = [];
     for (const resource of this.state.searchResults) {
-      console.log(resource);
+      // console.log(resource);
       items.push((
         <li key={resource.id} onClick={(e) => this.onItemSelect(resource.id)}>
           {resource.attributes.title}
