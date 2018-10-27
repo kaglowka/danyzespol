@@ -1,0 +1,16 @@
+.axis-options {
+    display: flex;
+}
+
+.option-tile {
+    border: 2px solid rgba(0,0,0,0.54);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+
+    &:hover, &.selected {
+        background-color: rgba(0,0,0,0.54);
+        color: white;
+    }
+}
