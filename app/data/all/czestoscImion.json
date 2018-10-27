@@ -1,0 +1,56 @@
+{
+  "data": {
+    "type": "resource",
+    "attributes": {
+      "created": "2016-09-13 11:27:11.173324+00:00",
+      "link": "https://www.dane.gov.pl/media/resources/20160913/demografia_imiona.csv",
+      "views_count": 250,
+      "format": "csv",
+      "description": "<p>dla imion, które posiada co najmniej 5 stałych mieszkańców Lublina</p>\n",
+      "title": "Gęstość imion w latach 1950-2016",
+      "type": "file",
+      "downloads_count": 18,
+      "openness_score": 3,
+      "file_url": "https://www.dane.gov.pl/media/resources/20160913/demografia_imiona.csv",
+      "modified": "2016-09-13 11:27:12.016435+00:00"
+    },
+    "id": 140,
+    "relationships": {
+      "dataset": {
+        "links": {
+          "related": {
+            "href": "/datasets/24"
+          }
+        },
+        "data": {
+          "type": "datasets",
+          "id": "24"
+        }
+      }
+    },
+    "links": {
+      "self": "/resources/140"
+    }
+  },
+  "links": {
+    "self": "/resources/140"
+  },
+  "included": [
+    {
+      "type": "dataset",
+      "attributes": {
+        "title": "Częstość imion w latach 1950-2016"
+      },
+      "id": 24,
+      "links": {
+        "self": "/datasets/24"
+      }
+    }
+  ],
+  "meta": {
+    "language": "en",
+    "params": {},
+    "path": "/resources/140",
+    "rel_uri": "/resources/140"
+  }
+}
