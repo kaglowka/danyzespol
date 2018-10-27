@@ -20,12 +20,12 @@ class SearchBar extends React.Component {
     const searchText = event.target.value;
     this.setState({searchText});
     this.timer = setTimeout(() => {
-      if (this.onSearch) {
-        this.onSearch(value);
-      }
+      const results = APIgetResources(searchText).then(result => {
+      	this.setState({searchResults: result.data});
+    	});
     }, 500);
   }
-
+	
   componentDidMount() {
     const results = APIgetResources().then(result => {
       this.setState({searchResults: result.data});

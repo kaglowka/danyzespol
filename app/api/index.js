@@ -4,8 +4,8 @@ import czestoscImion from '../data/all/czestoscImion.json';
 export const API_URL = 'http://localhost:8000';
 export const ANALYSIS_API_URL = 'http://localhost:8080';
 
-export function APIgetResources() {
-  return fetch(`${API_URL}/resources`, {
+export function APIgetResources(text = '') {
+  return fetch(`${API_URL}/resources/?q=${text}`, {
     method: 'GET',
   }).then(response => response.json())
 }
