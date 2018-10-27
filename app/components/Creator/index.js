@@ -5,6 +5,7 @@ import cnames from 'classnames'
 import './style.scss';
 
 import DatasetPreview from '../DatasetPreview';
+import ChartEditor from '../ChartEditor';
 
 const columns = [
 	{
@@ -45,7 +46,7 @@ export default class Creator extends React.Component {
 				<section className="chart-section">
 					<div className="section-container">
 						<div className="chart-section-description">
-							<h3>Co chcesz zobaczyć?</h3>
+							<h2>Co chcesz zobaczyć?</h2>
 							<p>Histogram jest jednym z najbardziej popularnych wykresów statystycznych. Służy on do przedstawienia liczebności obserwacji w zadanych przedziałach.</p>
 						</div>
 						<div className="chart-slider">
@@ -60,7 +61,8 @@ export default class Creator extends React.Component {
 				</section>
 				<section className="editor-section">
 					<div className="section-container">
-						Edytor wykresu
+						<button className={cnames('action-button', 'primary-button')}>Udostępnij wykres</button>
+						<ChartEditor columns={columns}/>
 					</div>
 				</section>
 			</div>

@@ -1,5 +1,7 @@
 .creator {
-    font-family: 'Roboto', sans-serif;
+    p {
+        font-family: 'Roboto', sans-serif;
+    }
 }
 
 .chart-section {
@@ -12,7 +14,13 @@
 }
 
 .chart-section-description {
-    flex: 1
+    flex: 1;
+    font-size: 12px;
+
+    p {
+        color: rgba(0,0,0,0.54);
+        font-family: 'Roboto', sans-serif;
+    }
 }
 
 .chart-slider {
@@ -32,4 +40,15 @@
     margin-left: auto;
     margin-right: auto;
     padding: 28px 0;
+
+}
+
+.action-button {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: #0971DD;
+    text-transform: uppercase;
+    color: white;
+    padding: 5px 10px;
 }
