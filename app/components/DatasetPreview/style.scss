@@ -4,14 +4,32 @@
 .preview-table {
     display: grid;
     background: #FFFFFF;
-    border: 1px solid rgba(0,0,0,0.12);
+    border-right: 1px solid rgba(0,0,0,0.12);
     border-radius: 3px;
 
     .cell {
         padding: 15px 0;
         border-bottom: 1px solid rgba(0,0,0,0.12);
         text-align: center;
+
+        &:first-child {
+            border-top: 1px solid rgba(0,0,0,0.12);
+        }
     }
+}
+
+.row-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.54);
+    text-align: right;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    line-height: 14px;
+    border-right: 1px solid rgba(0,0,0,0.12);
 }
 
 .column-header {
@@ -20,6 +38,7 @@
     color: rgba(0,0,0,0.54);
     letter-spacing: 0.5px;
     font-weight: 600;
+    border-top: 1px solid rgba(0,0,0,0.12);
 }
 
 .column-type {
