@@ -39,6 +39,23 @@ const columns = [
 ]
 
 export default class Creator extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			selectedOnX: undefined,
+			selectedOnY: undefined,
+		}
+	}
+
+	handleXOptionChange = (option) => {
+		this.setState({selectedOnX: option})
+	}
+
+	handleYOptionChange = (option) => {
+		this.setState({selectedOnY: option})
+	}
+
 	render() {
 
 		return (
@@ -62,7 +79,13 @@ export default class Creator extends React.Component {
 				<section className="editor-section">
 					<div className="section-container">
 						<button className={cnames('action-button', 'primary-button')}>Udostępnij wykres</button>
-						<ChartEditor columns={columns}/>
+						<ChartEditor
+							columns={columns}
+							selectedOnX={this.state.selectedOnX}
+							selectedOnY={this.state.selectedOnY}
+							onYOptionSelect={this.handleYOptionChange}
+							onXOptionSelect={this.handleXOptionChange}
+						/>
 					</div>
 				</section>
 			</div>

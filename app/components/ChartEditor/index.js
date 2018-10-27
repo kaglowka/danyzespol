@@ -6,33 +6,25 @@ import './style.scss';
 
 
 export default class ChartEditor extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-			selectedOnX: undefined,
-			selectedOnY: undefined,
-		}
-	}
 
 	handleXOptionClick(option) {
-		this.setState({selectedOnX: option})
+		this.props.onXOptionSelect(option)
 	}
 
 	handleYOptionClick(option) {
-		this.setState({selectedOnY: option})
+		this.props.onYOptionSelect(option)
 	}
 
 	renderYAxisOptions(columns) {
 		return (
 			<div className="axis-options">
-				<div className={cnames("option-tile", this.state.selectedOnY === "sum" ? 'selected' : '')} onClick={() => this.handleYOptionClick("sum")}>
+				<div className={cnames("option-tile", this.props.selectedOnY === "sum" ? 'selected' : '')} onClick={() => this.handleYOptionClick("sum")}>
 					Zlicz wszystkie
 				</div>
 				{columns
 					.filter((column) => column.type === 'number')
 					.map((column) => (
-						<div className={cnames("option-tile", column.header === this.state.selectedOnY ? 'selected' : '')} onClick={() => this.handleYOptionClick(column.header)}>
+						<div className={cnames("option-tile", column.header === this.props.selectedOnY ? 'selected' : '')} onClick={() => this.handleYOptionClick(column.header)}>
 							{column.header}
 						</div>
 					),
@@ -46,7 +38,7 @@ export default class ChartEditor extends React.Component {
 			<div className="axis-options">
 				{columns
 					.map((column) => (
-						<div className={cnames("option-tile", column.header === this.state.selectedOnX ? 'selected' : '')} onClick={() => this.handleXOptionClick(column.header)}>
+						<div className={cnames("option-tile", column.header === this.props.selectedOnX ? 'selected' : '')} onClick={() => this.handleXOptionClick(column.header)}>
 							{column.header}
 						</div>
 					),
