@@ -14,11 +14,13 @@ import {APIgetResource, analysisGetResource} from 'api';
 
 
 class App extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
+		
+		const resourceId = props.match.params.id;
 
 		this.state = {
-			resourceId: null,
+			resourceId: resourceId,
 			resource: null,
 			columns: null,
 		}
@@ -27,12 +29,11 @@ class App extends React.Component {
 	loadResource(id) {
 		APIgetResource(id).then(result => {
 			this.setState({
-				resourceId: id,
+				resourceId: result.data.id,
 				resource: result.data
 			});
 			return analysisGetResource(id)
 		}).then(result => {
-			// console.log(result);
 			this.setState({
 				columns: result.columns,
 			});
@@ -40,7 +41,7 @@ class App extends React.Component {
 	}
 	
 	componentDidMount() {
-		const resourceId = this.props.match.params.id;
+		const resourceId = this.state.resourceId;
 		if (resourceId) {
 			this.loadResource(resourceId);
 		}

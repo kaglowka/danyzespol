@@ -59,7 +59,7 @@ class SearchBar extends React.Component {
 			<div className='search-bar'>
 				{searchVisible &&
 					<div className='search-box-container'>
-						<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Np. xyz"/>
+						<input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Czego szukasz?"/>
 						<ul className='search-results'>
 							{this.renderResults()}
 						</ul>
