@@ -7,6 +7,7 @@ import ChartDisplay from '../ChartDisplay';
 
 import './style.scss';
 
+import ChartSlider from '../ChartSlider';
 import DatasetPreview from '../DatasetPreview';
 import {OPTION_SUM, default as ChartEditor} from '../ChartEditor';
 
@@ -101,9 +102,7 @@ export default class Creator extends React.Component {
 							<h2>Co chcesz zobaczyć?</h2>
 							<p>Histogram jest jednym z najbardziej popularnych wykresów statystycznych. Służy on do przedstawienia liczebności obserwacji w zadanych przedziałach.</p>
 						</div>
-						<div className="chart-slider">
-							Różne wykresy
-						</div>
+						<ChartSlider />
 					</div>
 				</section>
 				<section className="data-section">
