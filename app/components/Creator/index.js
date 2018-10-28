@@ -40,6 +40,11 @@ const columns = [
 ]
 
 export default class Creator extends React.Component {
+	static defaultProps = {
+		dataTitle: 'Najpopularniejsze imiona w Polsce',
+		dataSource: 'Ministerstwo Cyfryzacji',
+	}
+
 	constructor() {
 		super();
 
@@ -72,6 +77,11 @@ export default class Creator extends React.Component {
 				</section>
 				<section className="data-section">
 					<div className="section-container">
+						<div className="data-details">
+							<h3 className="data-title">{this.props.dataTitle}</h3>
+							<p className="data-source">{this.props.dataSource}</p>
+							<button className={cnames('action-button')}>Zmień dane</button>
+						</div>
 						<DatasetPreview columns={columns}/>
 					</div>
 				</section>

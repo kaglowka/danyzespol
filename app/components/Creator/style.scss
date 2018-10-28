@@ -2,6 +2,9 @@
     p {
         font-family: 'Roboto', sans-serif;
     }
+    h2, h3 {
+        color: rgb(51, 51, 51);
+    }
 }
 
 .chart-section {
@@ -14,22 +17,49 @@
 }
 
 .chart-section-description {
-    flex: 1;
+    width: 250px;
     font-size: 12px;
 
     p {
-        color: rgba(0,0,0,0.54);
+        color: #555;
         font-family: 'Roboto', sans-serif;
         margin-bottom: 0;
     }
 }
 
-.chart-slider {
-    flex: 3
-}
+// .chart-slider {
+//     flex: 3
+// }
 
 .data-section {
     background-color: #F9F9F9;
+
+    .section-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .data-details {
+        width: 250px;
+    }
+
+    // .dataset-preview {
+    //     flex: 3;
+    // }
+}
+
+.data-title {
+    color: rgb(51, 51, 51);
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+
+.data-source {
+    color: #0971DD;
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 15px;
 }
 
 .editor-section {
@@ -48,8 +78,16 @@
     font-size: 14px;
     border: none;
     outline: none;
-    background-color: #0971DD;
+    background-color: transparent;
+    border: 1px solid #0971DD;
     text-transform: uppercase;
-    color: white;
+    color: #0971DD;
     padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &.primary-button, &:hover {
+        background-color: #0971DD;
+        color: white;
+    }
 }
