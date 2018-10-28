@@ -4,6 +4,10 @@ import czestoscImion from '../data/all/czestoscImion.json';
 export const API_URL = 'http://localhost:8000';
 export const ANALYSIS_API_URL = 'http://localhost:8080';
 
+function params(data) {
+  return Object.keys(data).map(key => `${key}=${encodeURIComponent(data[key])}`).join('&');
+}
+
 export function APIgetResources(text = '') {
 	const url = `${API_URL}/resources/?q=${text}`
   return fetch(url, {
@@ -30,10 +34,9 @@ export function analysisGetResource(id) {
 
 export function analysisGetChartData(id, data) {
 	const fetchId = id || '';
-	const url = `${ANALYSIS_API_URL}/getChartData/${fetchId}`;
+	const url = `${ANALYSIS_API_URL}/getChartData/${fetchId}?${params(data)}`;
   return fetch(url, {
-    method: 'POST',
-		body: data,
+    method: 'GET',
   }).then(response => response.json())
 		.catch(console.log(`Error for request: ${url}`));
 }

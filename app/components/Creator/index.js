@@ -77,6 +77,7 @@ export default class Creator extends React.Component {
 		} else {
 			data.y = y;
 		}
+		console.log(this.state);
 		
 		console.log(this.state);
 		const { resourceId } = this.props;
