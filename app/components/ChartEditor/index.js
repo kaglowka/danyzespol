@@ -12,7 +12,7 @@ export default class ChartEditor extends React.Component {
 			columns
 				.filter((column) => column.type === 'number')
 				.map((column) => (
-					<div>{column.header}</div>
+					<div key={column.header}>{column.header}</div>
 				),
 				)
 		)

@@ -23,25 +23,25 @@ export default class DatasetPreview extends React.Component {
 					<div className="preview-table" style={gridStyle}>
 						<div className="row-title">Nagłówek kolumny</div>
 						{columns.map((column) => (
-							<div className={cnames('column-header', 'cell')}>
+							<div key={column.header} className={cnames('column-header', 'cell')}>
 								{column.header}
 							</div>),
 						)}
 						<div className="row-title">Rodzaj danych</div>
 						{columns.map((column) => (
-							<div className={cnames('column-type', 'cell', column.type)}>
+							<div key={column.header} className={cnames('column-type', 'cell', column.type)}>
 								{column.type === 'string' ? 'tekst' : 'liczba'}
 							</div>),
 						)}
 						<div className="row-title">Liczba niepowtarzalnych wyników</div>
 						{columns.map((column) => (
-							<div className={cnames('column-unique', 'cell')}>
+							<div key={column.header} className={cnames('column-unique', 'cell')}>
 								{column.unique}
 							</div>),
 						)}
 						<div className="row-title">Zakres</div>
 						{columns.map((column) => (
-							<div className={cnames('column-range', 'cell')}>
+							<div key={column.header} className={cnames('column-range', 'cell')}>
 								{column.rangeFrom} - {column.rangeTo}
 							</div>),
 						)}

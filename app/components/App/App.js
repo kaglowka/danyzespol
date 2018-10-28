@@ -45,7 +45,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.resource)
 		return (
 			<div className="app-wrapper">
 				<SearchBar onItemSelect={this.onSelect} />
