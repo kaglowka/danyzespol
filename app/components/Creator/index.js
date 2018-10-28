@@ -80,7 +80,7 @@ export default class Creator extends React.Component {
 					<div className="section-container">
 						<button className={cnames('action-button', 'primary-button')}>Udostępnij wykres</button>
 						<ChartEditor
-							columns={columns}
+							columns={this.props.columns}
 							selectedOnX={this.state.selectedOnX}
 							selectedOnY={this.state.selectedOnY}
 							onYOptionSelect={this.handleYOptionChange}
