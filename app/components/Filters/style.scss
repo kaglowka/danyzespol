@@ -1,0 +1,38 @@
+// .filter-options {
+//     display: flex;
+//     flex-direction: column;
+// }
+
+.filter{
+    margin-bottom: 15px;
+    line-height: 24px;
+    font-size: 16px;
+    color: #6d6d6d;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #6d6d6d;
+    border-radius: 5px;
+    padding-left: 10px;
+    width: 300px;
+
+    .col-header {
+        color: #6d6d6d;
+        text-transform: uppercase;
+        font-weight: 500;
+        &:after {
+            content: " = "
+        }
+    }
+
+}
+
+.filter-input {
+    padding: 10px 15px;
+    display: inline;
+    border-left: none;
+    outline: none;
+    width: 60%;
+    &:focus {
+        outline: none;
+    }
+}
+

@@ -7,6 +7,7 @@ import './style.scss';
 import ChartSlider from '../ChartSlider';
 import DatasetPreview from '../DatasetPreview';
 import ChartEditor from '../ChartEditor';
+import Filters from '../Filters';
 
 const columns = [
 	{
@@ -95,6 +96,7 @@ export default class Creator extends React.Component {
 							onYOptionSelect={this.handleYOptionChange}
 							onXOptionSelect={this.handleXOptionChange}
 						/>
+						<Filters columns={columns}/>
 					</div>
 				</section>
 			</div>

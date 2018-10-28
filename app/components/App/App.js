@@ -11,6 +11,7 @@ import './style.scss';
 import SearchBar from '../SearchBar';
 import Creator from '../Creator';
 import {getResource} from 'api';
+import banner from '../../assets/banner.png'
 
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app-wrapper">
+				<img src={banner} />
 				<SearchBar onItemSelect={this.onSelect} />
 				{this.state.resource && <div>{this.state.resource.attributes.title}</div>}
 				<Creator />
