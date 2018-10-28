@@ -22,9 +22,8 @@ class App extends React.Component {
 			columns: null,
 		}
 	}
-
-	onSelect = (id) => {
-		console.log(id);
+	
+	loadResource(id) {
 		APIgetResource(id).then(result => {
 			this.setState({resource: result.data});
 			return analysisGetResource(id)
@@ -32,6 +31,17 @@ class App extends React.Component {
 			// console.log(result);
 			this.setState({columns: result.columns});
 		});
+	}
+	
+	componentDidMount() {
+		const resourceId = this.props.match.params.id;
+		if (resourceId) {
+			this.loadResource(resourceId);
+		}
+	}
+	
+	onSelect = (id) => {
+		this.loadResource(id);
 	}
 
 	render() {
