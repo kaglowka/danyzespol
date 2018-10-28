@@ -4,6 +4,7 @@ import cnames from 'classnames'
 
 import './style.scss';
 
+export const OPTION_SUM = 'OPTION_SUM';
 
 export default class ChartEditor extends React.Component {
 
@@ -18,7 +19,7 @@ export default class ChartEditor extends React.Component {
 	renderYAxisOptions(columns) {
 		return (
 			<div className="axis-options">
-				<div className={cnames("option-tile", this.props.selectedOnY === "sum" ? 'selected' : '')} onClick={() => this.handleYOptionClick("sum")}>
+				<div className={cnames("option-tile", this.props.selectedOnY === OPTION_SUM ? 'selected' : '')} onClick={() => this.handleYOptionClick(OPTION_SUM)}>
 					Zlicz wszystkie
 				</div>
 				{columns

@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cnames from 'classnames'
+import {analysisGetChartData} from 'api';
+import ChartDisplay from '../ChartDisplay';
+
 
 import './style.scss';
 
 import DatasetPreview from '../DatasetPreview';
-import ChartEditor from '../ChartEditor';
+import {OPTION_SUM, default as ChartEditor} from '../ChartEditor';
+
 
 const columns = [
 	{
@@ -43,17 +47,48 @@ export default class Creator extends React.Component {
 		super();
 
 		this.state = {
+			resourceId: undefined,
 			selectedOnX: undefined,
 			selectedOnY: undefined,
+			chartData: undefined,
 		}
 	}
 
 	handleXOptionChange = (option) => {
 		this.setState({selectedOnX: option})
+		this.generateChart();
 	}
 
 	handleYOptionChange = (option) => {
 		this.setState({selectedOnY: option})
+		this.generateChart();
+	}
+	
+	generateChart() {
+		const data = {
+			type: 'histogram',
+			x: this.state.selectedOnX,
+		};
+		
+		const y = this.state.selectedOnY;
+		if (y === OPTION_SUM) {
+			data.operation = 'unique';
+		} else {
+			data.y = y;
+		}
+		
+		console.log(this.state);
+		const { resourceId } = this.props;
+		if (resourceId) {
+				analysisGetChartData(resourceId, data).then(result => {
+				this.setState({chartData: result})
+			});
+		};
+	}
+	
+	componentDidMount() {
+		console.log('mounted');
+		this.generateChart();
 	}
 
 	render() {
@@ -85,6 +120,9 @@ export default class Creator extends React.Component {
 							selectedOnY={this.state.selectedOnY}
 							onYOptionSelect={this.handleYOptionChange}
 							onXOptionSelect={this.handleXOptionChange}
+						/>
+						<ChartDisplay
+							chartData={this.state.chartData}
 						/>
 					</div>
 				</section>

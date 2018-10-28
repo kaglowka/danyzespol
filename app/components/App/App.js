@@ -18,6 +18,7 @@ class App extends React.Component {
 		super();
 
 		this.state = {
+			resourceId: null,
 			resource: null,
 			columns: null,
 		}
@@ -25,11 +26,16 @@ class App extends React.Component {
 	
 	loadResource(id) {
 		APIgetResource(id).then(result => {
-			this.setState({resource: result.data});
+			this.setState({
+				resourceId: id,
+				resource: result.data
+			});
 			return analysisGetResource(id)
 		}).then(result => {
 			// console.log(result);
-			this.setState({columns: result.columns});
+			this.setState({
+				columns: result.columns,
+			});
 		});
 	}
 	
@@ -49,7 +55,10 @@ class App extends React.Component {
 			<div className="app-wrapper">
 				<SearchBar onItemSelect={this.onSelect} />
 				{this.state.resource && <div>{this.state.resource.attributes.title}</div>}
-				<Creator columns={this.state.columns}/>
+				<Creator
+					resourceId={this.state.resourceId}
+					columns={this.state.columns}
+				/>
 			</div>
 		);
 	}
