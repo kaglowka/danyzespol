@@ -48,7 +48,7 @@ export default class Creator extends React.Component {
 		super();
 
 		this.state = {
-			resourceId: undefined,
+			shouldFetchData: false,
 			selectedOnX: undefined,
 			selectedOnY: undefined,
 			chartData: undefined,
@@ -56,17 +56,17 @@ export default class Creator extends React.Component {
 	}
 
 	handleXOptionChange = (option) => {
-		this.setState({selectedOnX: option})
-		this.generateChart();
+		this.setState({shouldFetchData: true, selectedOnX: option})
 	}
 
 	handleYOptionChange = (option) => {
-		this.setState({selectedOnY: option})
-		this.generateChart();
+		this.setState({shouldFetchData: true, selectedOnY: option})
 	}
 	
-	generateChart() {
-		const data = {
+	generateChart() { // selectedX, selectedY) {
+		console.log('generateCHart: ', this.state);
+		const x = this.state.selectedOnX;
+		let data = {
 			type: 'histogram',
 			x: this.state.selectedOnX,
 		};
@@ -77,20 +77,25 @@ export default class Creator extends React.Component {
 		} else {
 			data.y = y;
 		}
-		console.log(this.state);
-		
-		console.log(this.state);
 		const { resourceId } = this.props;
-		if (resourceId) {
+		if (resourceId && x && y) {
 				analysisGetChartData(resourceId, data).then(result => {
-				this.setState({chartData: result})
+				this.setState({shouldFetchData: false, chartData: result})
 			});
-		};
+		}
 	}
 	
 	componentDidMount() {
-		console.log('mounted');
-		this.generateChart();
+		if (this.state.shouldFetchData) {
+			this.generateChart();
+		}
+	}
+	
+	componentDidUpdate() {
+		console.log('update ', this.state)
+		if (this.state.shouldFetchData) {
+			this.generateChart();
+		}
 	}
 
 	render() {
