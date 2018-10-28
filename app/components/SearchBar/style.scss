@@ -1,2 +1,49 @@
 
 
+$input-height: 20px;
+
+.search-bar {
+    height: 50px;
+}
+
+.search-box-container {
+    position: relative;
+
+    input {
+        height: $input-height;
+    }
+}
+
+
+button.change-data {
+    border: 1px solid #6d6d6d;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    background-color: #6d6d6d;
+    color: white;
+}
+
+.search-results {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: $input-height + 6px;
+    list-style-type: none;
+
+    border: 1px solid #939393;
+    background-color: white;
+
+    li {
+        padding: 3px 2px;
+        &:hover {
+            color: white;
+            background-color: #6d6d6d;
+        }
+    }
+}
+
